@@ -1,21 +1,21 @@
-    // プレーヤー情報とカウント
+    // プレーヤー
     const players = [
     {name: 'Player 1', lastCard: null },
     {name: 'Player 2', lastCard: null }
     ];
     let matchCount = 0;
 
-    // 1～5のカードをランダムに引く関数
+    // 1～3のカードをランダムに引く
     function drawCard() {
         return Math.floor(Math.random() * 3) + 1; // 1～3の数字を返す
     }
 
-    // 1～5のカードに対応する画像のパスを取得する関数
+    // 1～3のカードに対応する画像のパスを取得
     function getCardImage(cardNumber) {
-        return `card${cardNumber}.png`; // card1.png から card3.png までの画像を想定
+        return `card${cardNumber}.png`; // card1.png から card3.png 
     }
 
-    // ラウンドを進行する関数
+    // ラウンド進行
     function playRound(playerNumber) {
         const resultDiv = document.getElementById("gameResult");
 
@@ -27,7 +27,7 @@
     return; // ゲーム終了
         }
 
-    // プレーヤーのカードを引く
+    // プレーヤーがカードを引く
     const card = drawCard();
     players[playerNumber - 1].lastCard = card; // プレーヤーのカードを記録
 
@@ -51,7 +51,8 @@
     players[0].lastCard = null;
     players[1].lastCard = null;
         } else {
-        // プレーヤーがカードを引いた際の表示
-        resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="./img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
+    
+    // プレーヤーがカードを引いた際の表示
+    resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="./img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
         }
     }
