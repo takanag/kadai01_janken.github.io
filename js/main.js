@@ -1,21 +1,21 @@
-    // プレーヤー
+    // プレーヤー情報とカウント
     const players = [
     {name: 'Player 1', lastCard: null },
     {name: 'Player 2', lastCard: null }
     ];
     let matchCount = 0;
 
-    // 1～3のカードをランダムに引く
+    // 1～5のカードをランダムに引く関数
     function drawCard() {
         return Math.floor(Math.random() * 3) + 1; // 1～3の数字を返す
     }
 
-    // 1～3のカードに対応する画像のパスを取得
+    // 1～5のカードに対応する画像のパスを取得する関数
     function getCardImage(cardNumber) {
-        return `card${cardNumber}.png`; // card1.png から card3.png 
+        return `card${cardNumber}.png`; // card1.png から card3.png までの画像を想定
     }
 
-    // ラウンド進行
+    // ラウンドを進行する関数
     function playRound(playerNumber) {
         const resultDiv = document.getElementById("gameResult");
 
@@ -27,14 +27,14 @@
     return; // ゲーム終了
         }
 
-    // プレーヤーがカードを引く
+    // プレーヤーのカードを引く
     const card = drawCard();
     players[playerNumber - 1].lastCard = card; // プレーヤーのカードを記録
 
     // 両方のプレーヤーがカードを引いた場合の処理
     if (players[0].lastCard !== null && players[1].lastCard !== null) {
         // カードが一致した場合
-        resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="https://github.com/taknaag/kadai01_janken.github.io/tree/main/img/${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="https://github.com/taknaag/kadai01_janken.github.io/tree/main/img/${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
+        resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="./img/${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="./img/${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
 
     if (players[0].lastCard === players[1].lastCard) {
         matchCount += 1;
@@ -51,8 +51,7 @@
     players[0].lastCard = null;
     players[1].lastCard = null;
         } else {
-    
-    // プレーヤーがカードを引いた際の表示
-    resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="https://github.com/taknaag/kadai01_janken.github.io/tree/main/img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
+        // プレーヤーがカードを引いた際の表示
+        resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="./img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
         }
     }
