@@ -34,7 +34,7 @@
     // 両方のプレーヤーがカードを引いた場合の処理
     if (players[0].lastCard !== null && players[1].lastCard !== null) {
         // カードが一致した場合
-        resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="./img/${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="./img/${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
+        resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="https://github.com/taknaag/kadai01_janken.github.io/tree/main/img/${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="https://github.com/taknaag/kadai01_janken.github.io/tree/main/img/${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
 
     if (players[0].lastCard === players[1].lastCard) {
         matchCount += 1;
@@ -53,6 +53,6 @@
         } else {
     
     // プレーヤーがカードを引いた際の表示
-    resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="./img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
+    resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="https://github.com/taknaag/kadai01_janken.github.io/tree/main/img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
         }
     }
