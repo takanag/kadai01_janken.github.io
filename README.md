@@ -5,7 +5,7 @@
 カードの数字合わせの仕組みを応用した相性占い
 
 ## ③DEMO
-##デプロイしている場合はURLを記入（任意）
+https://taknaag.github.io/kadai01_janken.github.io/
 
 ## ④作ったアプリケーション用のIDまたはPasswordがある場合
 なし
