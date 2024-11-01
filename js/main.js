@@ -1,3 +1,4 @@
+    let playRound;
     // プレーヤー情報とカウント
     const players = [
     {name: 'Player 1', lastCard: null },
