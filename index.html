@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>恋人たちの相性占いゲーム</title>
-    <link rel="stylesheet" href="./css/sample.css">
+    <link rel="stylesheet" href="css/sample.css">
 </head>
 
 <body>
-    <img src="./img/FingerCountLogo.jpg">
+    <img src="img/FingerCountLogo.jpg">
     <h1>恋人たちの相性占い "ラブラブフィンガーゲーム"</h1>
     <p>「ラブラブフィンガーゲーム」は、お互いの考えを読み合う心理ゲームです。プレイヤー同士が指でサインを同時に出します。同じサインが3回揃ったら、相性抜群とみなされてゲーム終了♡</p>
     <button id="drawButton1" onclick="playRound(1)">Player 1のカードを引く</button>
@@ -20,7 +20,7 @@
     <!-- <script src="./js/main.js"> -->
     <script>
         
-        // プレーヤー情報とカウント
+        // プレーヤー情報
         const players = [
             { name: 'Player 1', lastCard: null },
             { name: 'Player 2', lastCard: null }
@@ -56,8 +56,7 @@
             // 両方のプレーヤーがカードを引いた場合の処理
             if (players[0].lastCard !== null && players[1].lastCard !== null) {
                 // カードが一致した場合
-                resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
-                // resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="./img/${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="./img/${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
+                resultDiv.innerHTML = `<p>${players[0].name} のカード: <img src="img/${getCardImage(players[0].lastCard)}" class="card" alt="Card ${players[0].lastCard}">, ${players[1].name} のカード: <img src="img/${getCardImage(players[1].lastCard)}" class="card" alt="Card ${players[1].lastCard}"></p>`;
 
                 if (players[0].lastCard === players[1].lastCard) {
                     matchCount += 1;
@@ -75,8 +74,7 @@
                 players[1].lastCard = null;
             } else {
                 // プレーヤーがカードを引いた際の表示
-                resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
-                // resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="./img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
+                resultDiv.innerHTML = `<p>${players[playerNumber - 1].name} のカード: <img src="img/${getCardImage(card)}" class="card" alt="Card ${card}"></p>`;
             }
         }
 
